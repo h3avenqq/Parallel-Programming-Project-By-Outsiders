@@ -1,4 +1,26 @@
-﻿public class Philosopher
+﻿
+var obj = new object();
+var rnd = new Random();
+
+const int numPhil = 5;
+const int numFork = 5;
+
+var Phils = new List<Philosopher>();
+var Forks = new List<Fork>();
+
+for (int i = 0; i < numFork; i++)
+    Forks.Add(new Fork(i));
+for (int i = 0; i < numPhil; i++)
+    Phils.Add(new Philosopher(i, Forks.Where(x => x.Id == i || x.Id == (i + 1) % numFork).ToList(), rnd));
+
+// Начало трапезы
+foreach (var phil in Phils)
+{
+    var thread = new Thread(() => phil.Eating(obj));
+    thread.Start();
+}
+
+public class Philosopher
 {
     public int Id;
     public int TimeForEating;
@@ -14,12 +36,15 @@
         this.Forks = forks;
     }
 
-    public void Eating()
+    public void Eating(object obj)
     {
         while (!WellFed)
         {
-            if (Forks.Any(x => x.InUsage))
-                continue;
+            lock (obj)
+            {
+                if (Forks.Any(x => x.InUsage))
+                    continue;
+            }
 
             foreach(var fork in Forks)
                 fork.InUsage = true;
