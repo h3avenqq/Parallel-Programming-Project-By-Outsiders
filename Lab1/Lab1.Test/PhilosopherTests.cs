@@ -34,6 +34,23 @@ namespace Lab1.Test
             });
         }
 
-        
+        [Fact]
+        public void PhilosopherCtor_FailOnEmptyForksList()
+        {
+            // Arrange
+            int id = 1;
+            List<Fork> forks1 = null;
+            List<Fork> forks2 = new();
+            var rnd = new Random();
+
+            // Act
+
+            // Assert
+            Assert.Multiple(() =>
+            {
+                Assert.Throws<ArgumentException>(() => new Philosopher(id, forks1, rnd));
+                Assert.Throws<ArgumentException>(() => new Philosopher(id, forks2, rnd));
+            });
+        }
     }
 }
