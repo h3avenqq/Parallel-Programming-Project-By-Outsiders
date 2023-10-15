@@ -80,5 +80,22 @@ namespace Lab1.Test
             });
         }
 
+        [Fact]
+        public void ForkCtor_Success()
+        {
+            // Arrange
+            int id = 1;
+            bool inUsage = false;
+
+            // Act
+            var fork = new Fork(id);
+
+            // Assert
+            Assert.Multiple(() =>
+            {
+                Assert.Equal(id, fork.Id);
+                Assert.Equal(inUsage, fork.InUsage);
+            });
+        }
     }
 }
