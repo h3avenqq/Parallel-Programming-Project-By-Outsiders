@@ -22,14 +22,37 @@ foreach (var phil in Phils)
 
 public class Philosopher
 {
-    private int Id;
-    private int TimeForEating;
-    private bool WellFed;
-    private List<Fork> Forks = new List<Fork>();
+    private int _id;
+    private int _timeForEating;
+    private bool _wellFed;
+    private List<Fork> _forks = new List<Fork>();
+
+    public int Id { 
+        get { return _id; }
+        set { _id = value; }
+    }
+    public int TimeForEating
+    {
+        get { return _timeForEating; }
+        set { _timeForEating = value; }
+    }
+    public bool WellFed
+    {
+        get { return _wellFed; }
+        set { _wellFed = value; }
+    }
+    public List<Fork> Forks
+    {
+        get { return _forks; }
+        set { _forks = value; }
+    }
 
     // rnd необходим для случайной генерации
     public Philosopher(int id, List<Fork> forks, Random rnd)
     {
+        if (forks == null || !forks.Any())
+            throw new ArgumentException("Error: массив вилок пуст либо количество не равно 0");
+
         this.Id = id;
         this.TimeForEating = rnd.Next(2000, 5000);
         this.WellFed = false;
@@ -38,7 +61,7 @@ public class Philosopher
 
     public void Eating(object obj)
     {
-        while (!WellFed)
+        while (!_wellFed)
         {
             lock (obj)
             {
@@ -46,13 +69,13 @@ public class Philosopher
                     continue;
             }
 
-            foreach(var fork in Forks)
+            foreach(var fork in _forks)
                 fork.InUsage = true;
 
-            Thread.Sleep(TimeForEating);
-            WellFed = true;
-            Console.WriteLine($"Философ {Id} - поел");
-            foreach(var fork in Forks)
+            Thread.Sleep(_timeForEating);
+            _wellFed = true;
+            Console.WriteLine($"Философ {_id} - поел");
+            foreach(var fork in _forks)
                 fork.InUsage = false;
         }
     }
