@@ -52,5 +52,33 @@ namespace Lab1.Test
                 Assert.Throws<ArgumentException>(() => new Philosopher(id, forks2, rnd));
             });
         }
+
+        [Fact]
+
+        public void PhilosopherEating_Test()
+        {
+            // Arrange
+            int id = 2;
+            var forks = new List<Fork>()
+            {
+                new Fork(2),
+                new Fork(3)
+            };
+            bool wellFed = false;
+            var rnd = new Random();
+            var obj = new object();
+
+            // Act
+            var phil = new Philosopher(id, forks, rnd);
+            phil.Eating(obj);
+
+            // Assert
+            Assert.Multiple(() =>
+            {
+                Assert.Equal(!wellFed, phil.WellFed);
+                Assert.Equal(forks, phil.Forks);
+            });
+        }
+
     }
 }
