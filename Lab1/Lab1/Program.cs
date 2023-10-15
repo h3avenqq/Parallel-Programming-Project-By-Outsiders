@@ -22,10 +22,10 @@ foreach (var phil in Phils)
 
 public class Philosopher
 {
-    public int Id;
-    public int TimeForEating;
-    public bool WellFed;
-    public List<Fork> Forks = new List<Fork>();
+    private int Id;
+    private int TimeForEating;
+    private bool WellFed;
+    private List<Fork> Forks = new List<Fork>();
 
     // rnd необходим для случайной генерации
     public Philosopher(int id, List<Fork> forks, Random rnd)
@@ -60,8 +60,19 @@ public class Philosopher
 
 public class Fork
 {
-    public int Id;
-    public bool InUsage;
+    private int _id;
+    private bool _inUsage;
+
+    public int Id
+    {
+        get { return _id; }
+        set { _id = value; }
+    }
+    public bool InUsage
+    {
+        get { return _inUsage; }
+        set { _inUsage = value; }
+    }
 
     public Fork(int id)
     {
