@@ -67,16 +67,19 @@ public class Philosopher
             {
                 if (Forks.Any(x => x.InUsage))
                     continue;
-            }
 
-            foreach(var fork in _forks)
-                fork.InUsage = true;
+                foreach (var fork in _forks)
+                    fork.InUsage = true;
+            }
 
             Thread.Sleep(_timeForEating);
             _wellFed = true;
             Console.WriteLine($"Философ {_id} - поел");
-            foreach(var fork in _forks)
-                fork.InUsage = false;
+            lock (obj)
+            {
+                foreach (var fork in _forks)
+                    fork.InUsage = false;
+            }
         }
     }
 }
