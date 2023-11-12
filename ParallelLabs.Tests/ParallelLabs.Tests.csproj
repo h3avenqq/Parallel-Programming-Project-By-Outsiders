@@ -23,6 +23,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ParallelLabs.Lab1\ParallelLabs.Lab1.csproj" />
+    <ProjectReference Include="..\ParallelLabs.Lab2\ParallelLabs.Lab2.csproj" />
   </ItemGroup>
 
 </Project>
