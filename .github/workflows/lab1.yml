@@ -24,5 +24,5 @@ jobs:
       run: dotnet restore ./ParrallelLabs.sln
     - name: Build
       run: dotnet build ./ParrallelLabs.sln --no-restore
-    - name: Test
-      run: dotnet test ./ParrallelLabs.Tests/ParrallelLabs.Tests.csproj --no-build --verbosity normal
+    - name: Test Lab1
+      run: dotnet test ./ParrallelLabs.Tests/ParrallelLabs.Tests.csproj --no-build --verbosity normal --filter FullyQualifiedName~PhilosopherTests

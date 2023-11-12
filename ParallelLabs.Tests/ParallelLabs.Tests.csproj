@@ -22,7 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ParrallelLabs.Lab1\ParrallelLabs.Lab1.csproj" />
+    <ProjectReference Include="..\ParallelLabs.Lab1\ParallelLabs.Lab1.csproj" />
   </ItemGroup>
 
 </Project>
