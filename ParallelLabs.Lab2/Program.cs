@@ -29,8 +29,12 @@ Console.WriteLine($"Время выполнения без параллелиз�
 int minThreads = 2;
 int maxThreads = Environment.ProcessorCount;
 
+double[] accelerations = new double[maxThreads-minThreads+1];
+int counter = 0;
+
 for (int numThreads = minThreads; numThreads < maxThreads; numThreads++)
 {
+
     start = DateTime.Now;
     double resultParallel = LeftTriangleMethod.ParallelCalculateIntegral(Function, a, b, n, numThreads);
     var timeDiffwithParallel = (DateTime.Now - start).TotalMilliseconds;
@@ -40,12 +44,21 @@ for (int numThreads = minThreads; numThreads < maxThreads; numThreads++)
     // Вычисление и вывод ускорения
     double acceleration = (double)timeDiffnoParallel / (double)timeDiffwithParallel;
     Console.WriteLine($"Ускорение: {acceleration:F2}x");
+    accelerations[counter] = acceleration;
+    counter++;
 }
 
+LineSeries lineSeries = new LineSeries();
+counter = 0;
+for (int i = 2; i < accelerations.Length; i++)
+{
+    lineSeries.Points.Add(new DataPoint(i, accelerations[counter]));
+    counter++;
+}
 
-/*var model = new PlotModel { Title = "Ускорения многопоточной программы", Background = OxyColor.FromRgb(255, 255, 255) };
-model.Series.Add(new FunctionSeries(Math.Sin, 0d, 10d, 0.1, "Ускорение"));
-PngExporter.Export(model, "plot.png", 1280, 720);*/
+var model = new PlotModel { Title = "Ускорения многопоточной программы", Background = OxyColor.FromRgb(255, 255, 255) };
+model.Series.Add(lineSeries);
+PngExporter.Export(model, "plot.png", 1280, 720);
 
 public static class LeftTriangleMethod
 {
