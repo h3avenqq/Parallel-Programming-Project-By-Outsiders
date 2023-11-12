@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParrallelLabs.Lab1", "ParrallelLabs.Lab1\ParrallelLabs.Lab1.csproj", "{BDAABB04-0667-46D9-A5B1-C081D2CA6FC4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParrallelLabs.Tests", "ParrallelLabs.Tests\ParrallelLabs.Tests.csproj", "{10635A36-AFED-4784-BC6A-CFAEE2A69411}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BDAABB04-0667-46D9-A5B1-C081D2CA6FC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDAABB04-0667-46D9-A5B1-C081D2CA6FC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDAABB04-0667-46D9-A5B1-C081D2CA6FC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDAABB04-0667-46D9-A5B1-C081D2CA6FC4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10635A36-AFED-4784-BC6A-CFAEE2A69411}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10635A36-AFED-4784-BC6A-CFAEE2A69411}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10635A36-AFED-4784-BC6A-CFAEE2A69411}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10635A36-AFED-4784-BC6A-CFAEE2A69411}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {18F801F5-AB43-460E-8CB7-65AFED5A1DC8}
+	EndGlobalSection
+EndGlobal

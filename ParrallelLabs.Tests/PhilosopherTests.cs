@@ -1,8 +1,4 @@
-using System;
-using System.Collections.Generic;
-using Xunit;
-
-namespace Lab1.Test
+namespace ParrallelLabs.Tests
 {
     public class PhilosopherTests
     {

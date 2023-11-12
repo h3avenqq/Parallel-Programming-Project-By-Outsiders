@@ -21,8 +21,8 @@ jobs:
       with:
         dotnet-version: 6.0.x
     - name: Restore dependencies
-      run: dotnet restore ./Lab1/Lab1.sln
+      run: dotnet restore ./ParrallelLabs.sln
     - name: Build
-      run: dotnet build ./Lab1/Lab1.sln --no-restore
+      run: dotnet build ./ParrallelLabs.sln --no-restore
     - name: Test
-      run: dotnet test ./Lab1/Lab1.Test/Lab1.Test.csproj --no-build --verbosity normal
+      run: dotnet test ./ParrallelLabs.Tests/ParrallelLabs.Tests.csproj --no-build --verbosity normal

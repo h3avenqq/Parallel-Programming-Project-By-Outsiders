@@ -27,7 +27,8 @@ public class Philosopher
     private bool _wellFed;
     private List<Fork> _forks = new List<Fork>();
 
-    public int Id { 
+    public int Id
+    {
         get { return _id; }
         set { _id = value; }
     }
@@ -51,7 +52,7 @@ public class Philosopher
     public Philosopher(int id, List<Fork> forks, Random rnd)
     {
         if (forks == null || !forks.Any())
-            throw new ArgumentException("Error: массив вилок пуст либо количество не равно 0");
+            throw new ArgumentException("Error: массив вилок пуст либо количество равно 0");
 
         this.Id = id;
         this.TimeForEating = rnd.Next(2000, 5000);
@@ -67,16 +68,20 @@ public class Philosopher
             {
                 if (Forks.Any(x => x.InUsage))
                     continue;
-            }
 
-            foreach(var fork in _forks)
-                fork.InUsage = true;
+                foreach (var fork in _forks)
+                    fork.InUsage = true;
+            }
 
             Thread.Sleep(_timeForEating);
             _wellFed = true;
             Console.WriteLine($"Философ {_id} - поел");
-            foreach(var fork in _forks)
-                fork.InUsage = false;
+
+            lock (obj)
+            {
+                foreach (var fork in _forks)
+                    fork.InUsage = false;
+            }
         }
     }
 }
