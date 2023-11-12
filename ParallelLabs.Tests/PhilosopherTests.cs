@@ -1,4 +1,4 @@
-namespace ParrallelLabs.Tests
+namespace ParallelLabs.Tests
 {
     public class PhilosopherTests
     {
