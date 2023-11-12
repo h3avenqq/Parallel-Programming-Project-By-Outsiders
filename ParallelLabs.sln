@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParallelLabs.Lab1", "ParallelLabs.Lab1\ParallelLabs.Lab1.csproj", "{BDAABB04-0667-46D9-A5B1-C081D2CA6FC4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ParallelLabs.Lab1", "ParallelLabs.Lab1\ParallelLabs.Lab1.csproj", "{BDAABB04-0667-46D9-A5B1-C081D2CA6FC4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParallelLabs.Tests", "ParallelLabs.Tests\ParallelLabs.Tests.csproj", "{10635A36-AFED-4784-BC6A-CFAEE2A69411}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ParallelLabs.Tests", "ParallelLabs.Tests\ParallelLabs.Tests.csproj", "{10635A36-AFED-4784-BC6A-CFAEE2A69411}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParallelLabs.Lab2", "ParallelLabs.Lab2\ParallelLabs.Lab2.csproj", "{01961940-DB93-4102-BFE1-E260B816E057}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{10635A36-AFED-4784-BC6A-CFAEE2A69411}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{10635A36-AFED-4784-BC6A-CFAEE2A69411}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{10635A36-AFED-4784-BC6A-CFAEE2A69411}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01961940-DB93-4102-BFE1-E260B816E057}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01961940-DB93-4102-BFE1-E260B816E057}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01961940-DB93-4102-BFE1-E260B816E057}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01961940-DB93-4102-BFE1-E260B816E057}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
