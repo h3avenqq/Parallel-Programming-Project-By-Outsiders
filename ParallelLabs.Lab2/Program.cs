@@ -1,8 +1,4 @@
-﻿using System;
-using System.Diagnostics;
-using System.Threading.Tasks;
-
-class Program
+﻿class Program
 {
     static double Function(double x)
     {
