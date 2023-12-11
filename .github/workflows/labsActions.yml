@@ -25,6 +25,10 @@ jobs:
     - name: Build
       run: dotnet build ./ParallelLabs.sln --no-restore
     - name: Test Lab1
-      run: dotnet test ./ParallelLabs.Tests/ParallelLabs.Tests.csproj --no-build --verbosity normal --filter FullyQualifiedName~PhilosopherTests
+      run: dotnet test ./ParallelLabs.Tests/ParallelLabs.Tests.csproj --no-build --verbosity normal --filter FullyQualifiedName~PhilosopherTests /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
     - name: Test Lab2
-      run: dotnet test ./ParallelLabs.Tests/ParallelLabs.Tests.csproj --no-build --verbosity normal --filter FullyQualifiedName~IntegralTests
+      run: dotnet test ./ParallelLabs.Tests/ParallelLabs.Tests.csproj --no-build --verbosity normal --filter FullyQualifiedName~IntegralTests /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
+    - name: Upload coverage reports to Codecov
+      uses: codecov/codecov-action@v3
+      env:
+        CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
