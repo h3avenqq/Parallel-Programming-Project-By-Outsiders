@@ -3,7 +3,9 @@
 
 [![codecov](https://codecov.io/gh/h3avenqq/Parallel-Programming-Project-By-Outsiders/graph/badge.svg?token=C40P4RRG8Y)](https://codecov.io/gh/h3avenqq/Parallel-Programming-Project-By-Outsiders)
 ![GitHub top language](https://img.shields.io/github/languages/top/h3avenqq/Parallel-Programming-Project-By-Outsiders#readme)
-
+<img src="https://img.shields.io/github/watchers/h3avenqq/Parallel-Programming-Project-By-Outsiders.svg"/>
+<img src="https://img.shields.io/github/issues-pr/h3avenqq/Parallel-Programming-Project-By-Outsiders.svg">
+<img src="https://img.shields.io/github/issues-pr-closed/h3avenqq/Parallel-Programming-Project-By-Outsiders.svg"/>
 
 <div align="center">
   <img src="https://liquipedia.net/commons/images/9/9b/Outsiders_CSGO_allmode.png"/>
