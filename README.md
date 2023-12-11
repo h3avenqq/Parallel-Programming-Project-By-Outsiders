@@ -7,6 +7,9 @@
 <img src="https://img.shields.io/github/issues-pr/h3avenqq/Parallel-Programming-Project-By-Outsiders.svg">
 <img src="https://img.shields.io/github/issues-pr-closed/h3avenqq/Parallel-Programming-Project-By-Outsiders.svg"/>
 
+
+
+
 <div align="center">
   <img src="https://liquipedia.net/commons/images/9/9b/Outsiders_CSGO_allmode.png"/>
 </div>
