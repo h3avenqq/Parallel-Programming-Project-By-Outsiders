@@ -138,16 +138,7 @@ while(passCounter < 2000)
 
 public class HockeyPlayer
 {
-    public int Id { 
-        get { return Id; }
-        set 
-        {
-            if (value < 0)
-                throw new ArgumentOutOfRangeException("Id can't be negative.");
-
-            Id = value;
-        }
-    }
+    public int Id { get; set; }
     public int TeamId { get; set; }
     public bool HasHockeyPuck { get; set; }
 
