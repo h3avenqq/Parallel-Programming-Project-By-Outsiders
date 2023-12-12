@@ -136,14 +136,26 @@ while(passCounter < 2000)
 }
 
 
-class HockeyPlayer
+public class HockeyPlayer
 {
-    public int Id { get; set; }
+    public int Id { 
+        get { return Id; }
+        set 
+        {
+            if (value < 0)
+                throw new ArgumentOutOfRangeException("Id can't be negative.");
+
+            Id = value;
+        }
+    }
     public int TeamId { get; set; }
     public bool HasHockeyPuck { get; set; }
 
     public HockeyPlayer(int id, int teamId)
     {
+        if (id < 0)
+            throw new ArgumentOutOfRangeException("Id can't be negative.");
+
         Id = id;
         TeamId = teamId;
         HasHockeyPuck = false;
@@ -152,6 +164,9 @@ class HockeyPlayer
     public int Pass(List<HockeyPlayer> players)
     {
         var rnd = new Random();
+
+        if (players.Count < 2)
+            throw new Exception("Not enough players");
 
         if (!HasHockeyPuck)
             throw new Exception($"Player #{Id} (Team #{TeamId}) cannot pass");
@@ -177,10 +192,6 @@ class HockeyPlayer
         HasHockeyPuck = false;
         players[playerNumber].HasHockeyPuck = true;
 
-        //if (Id == playerNumber)
-        //    Console.WriteLine("ZXC");
-        //Console.WriteLine(Id);
-        //Console.WriteLine(playerNumber);
         return players[playerNumber].Id;
     }
 }
