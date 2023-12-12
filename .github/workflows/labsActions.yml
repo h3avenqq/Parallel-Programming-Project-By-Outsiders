@@ -1,7 +1,7 @@
 # This workflow will build a .NET project
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
 
-name: Lab1
+name: Labs
 
 on:
   push:
@@ -28,3 +28,5 @@ jobs:
       run: dotnet test ./ParallelLabs.Tests/ParallelLabs.Tests.csproj --no-build --verbosity normal --filter FullyQualifiedName~PhilosopherTests
     - name: Test Lab2
       run: dotnet test ./ParallelLabs.Tests/ParallelLabs.Tests.csproj --no-build --verbosity normal --filter FullyQualifiedName~IntegralTests
+    - name: Test Lab3
+      run: dotnet test ./ParallelLabs.Tests/ParallelLabs.Tests.csproj --no-build --verbosity normal --filter FullyQualifiedName~HokeyTests
