@@ -121,11 +121,6 @@ namespace ParallelLabs.Tests
 
             process.EnableRaisingEvents = true;
 
-            process.Exited += (sender, e) =>
-            {
-               // Assert.Equal("Number of passes - 2000", error);
-            };
-
             process.Start();
 
             process.BeginOutputReadLine();
