@@ -43,11 +43,11 @@ jobs:
       run: dotnet build ./ParallelLabs.sln --no-restore
 
     - name: Test Lab1
-      run: dotnet test ./ParallelLabs.Tests/ParallelLabs.Tests.csproj --no-build --verbosity normal --filter FullyQualifiedName~PhilosopherTests /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
+      run: dotnet test ./ParallelLabs.Tests/ParallelLabs.Tests.csproj --no-build --verbosity normal --filter FullyQualifiedName~PhilosopherTests /p:CollectCoverage=true --collect:"XPlat Code Coverage"
     - name: Test Lab2
-      run: dotnet test ./ParallelLabs.Tests/ParallelLabs.Tests.csproj --no-build --verbosity normal --filter FullyQualifiedName~IntegralTests /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
+      run: dotnet test ./ParallelLabs.Tests/ParallelLabs.Tests.csproj --no-build --verbosity normal --filter FullyQualifiedName~IntegralTests /p:CollectCoverage=true --collect:"XPlat Code Coverage"
     - name: Test Lab3
-      run: dotnet test ./ParallelLabs.Tests/ParallelLabs.Tests.csproj --no-build --verbosity normal --filter FullyQualifiedName~HokeyTests /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
+      run: dotnet test ./ParallelLabs.Tests/ParallelLabs.Tests.csproj --no-build --verbosity normal --filter FullyQualifiedName~HokeyTests /p:CollectCoverage=true --collect:"XPlat Code Coverage"
     - name: Upload coverage reports to Codecov
       uses: codecov/codecov-action@v3
       env:
