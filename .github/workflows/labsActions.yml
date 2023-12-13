@@ -1,33 +1,53 @@
-# This workflow will build a .NET project
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
-
-name: Lab1
+name: Labs
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ "master" ]
+    branches: [ "main" ]
 
 jobs:
   build:
 
-    runs-on: ubuntu-latest
-
+    runs-on: windows-latest
     steps:
     - uses: actions/checkout@v3
     - name: Setup .NET
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: 6.0.x
+
+
+        
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Setup Intel MPI
+      id:   setup1
+      uses: ./
+      with:
+        mpi: intel
+
+    - name: Setup Microsoft MPI
+      id:   setup2
+      uses: ./
+      with:
+        mpi: microsoft
+
+    - run: test ${{ steps.setup1.outputs.mpi }} == intelmpi
+    - run: test ${{ steps.setup2.outputs.mpi }} == msmpi
+
     - name: Restore dependencies
       run: dotnet restore ./ParallelLabs.sln
     - name: Build
       run: dotnet build ./ParallelLabs.sln --no-restore
+
     - name: Test Lab1
       run: dotnet test ./ParallelLabs.Tests/ParallelLabs.Tests.csproj --no-build --verbosity normal --filter FullyQualifiedName~PhilosopherTests /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
     - name: Test Lab2
       run: dotnet test ./ParallelLabs.Tests/ParallelLabs.Tests.csproj --no-build --verbosity normal --filter FullyQualifiedName~IntegralTests /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
+    - name: Test Lab3
+      run: dotnet test ./ParallelLabs.Tests/ParallelLabs.Tests.csproj --no-build --verbosity normal --filter FullyQualifiedName~HokeyTests /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
     - name: Upload coverage reports to Codecov
       uses: codecov/codecov-action@v3
       env:

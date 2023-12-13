@@ -189,8 +189,38 @@
         }
   ```
 
-- #### [Тест лаб. 3]()
+- #### [Тест лаб. 3](./ParallelLabs.Tests/HokeyTests.cs)
   Пример теста:
   ```C#
-  
-  ```
+  public void TestMPI_Success()
+        {
+            Process process = new Process();
+            process.StartInfo.WorkingDirectory = Directory.GetCurrentDirectory();
+            process.StartInfo.FileName = "mpiexec";
+            process.StartInfo.Arguments = "-n 12 ParallelLabs.Lab3.exe";
+
+            process.StartInfo.RedirectStandardOutput = true;
+            process.StartInfo.RedirectStandardError = true;
+            process.StartInfo.UseShellExecute = false;
+            process.StartInfo.CreateNoWindow = true;
+
+            string message = string.Empty;
+
+            process.OutputDataReceived += (sender, e) =>
+            {
+                if (!string.IsNullOrEmpty(e.Data))
+                {
+                    message = e.Data;
+                }
+            };
+
+            process.EnableRaisingEvents = true;
+
+            process.Start();
+
+            process.BeginOutputReadLine();
+            process.BeginErrorReadLine();
+
+            process.WaitForExit();
+            Assert.Equal("Number of passes - 2000", message);
+        }
